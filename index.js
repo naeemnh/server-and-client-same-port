@@ -6,7 +6,7 @@ const app = require('express')(),
 require('./models/User');
 require('./services/passport');
 
-mongoose.connect(keys.localMongoURI, {
+mongoose.connect(keys.mongoURI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,
