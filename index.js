@@ -1,4 +1,5 @@
-const app = require('express')(),
+const express = require('express'),
+	app = express(),
 	mongoose = require('mongoose'),
 	cookieSession = require('cookie-session'),
 	passport = require('passport'),
