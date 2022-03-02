@@ -1,7 +1,8 @@
 const mongoose = require("mongoose"),
+	Survey = mongoose.model("surveys"),
+	Mailer = require("../services/Mailer"),
 	requireLogin = require("../middlewares/requireLogin"),
 	requireCredits = require("../middlewares/requireCredits"),
-	Survey = mongoose.model("surveys"),
 	surveyTemplate = require("../services/emailTemplates/surveyTemplate");
 
 module.exports = (app) => {
@@ -12,9 +13,7 @@ module.exports = (app) => {
 			title,
 			subject,
 			body,
-			recipients: recipients
-				.split(",")
-				.map((email) => ({ email: email.trim() })),
+			recipients: recipients.split(",").map((email) => ({ email })),
 			_user: req.user._id,
 			dateSent: Date.now(),
 		});
